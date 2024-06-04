@@ -1,0 +1,495 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+ *{ 
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  /* font-size: 10px; */
+  /* 16px --> 100% */
+  /* 10px --- (100/16) *10  */
+  font-size: 62.5%;
+}
+body{
+  font-family: "Montserrat", sans-serif;
+
+}
+
+ul li{
+  list-style: none;
+  font-size: 1.6rem;
+}
+
+a{
+  font-size: 1.6rem;
+  text-decoration: none;
+}
+
+p, li{
+  font-size: 1.6rem;
+  /* here em takes its font size as 16px*0.5-->8px  */
+  margin-bottom: 0.5em;
+  letter-spacing: 0.10em;
+}
+
+h1, h2, h3 {
+  margin-bottom: 0.5em;
+  letter-spacing: 0.15em;
+  font-weight: 500;
+}
+
+/* #############utility classes##################### */
+
+.container{
+  /* if we give only width instead of max width then when we maximize the window there will come scroll bar horizontally but we don't need that so we use max width  */
+  max-width: 1200px;
+  /* and after giving max width when we shrink the window horizontally it doesn't leave gap after it reduces from 1200 px width . So to make gap even after the width is less than 1200px we use width 90%  */
+  width: 90%;
+  margin: 0 auto;
+}
+
+.lg-heading{
+  font-size: 3.5rem;
+}
+
+.md-heading{
+  font-size: 2.2rem;
+}
+
+.text-red{
+  color: #e63946;
+}
+
+.text-light{
+  color: #f4f4f4;
+}
+
+.text-black{
+  color: #333;
+}
+
+.text-gray{
+  color: #5555;
+}
+
+.bg-dark{
+  background-color: #263238;
+}
+
+.btn{
+  display: inline-block;
+  /* em are used so that it works on the basis of its font size  */
+  padding: 0.5em 1.5em;
+  text-transform: uppercase;
+  margin: 0.5rem 0;
+}
+
+.btn-primary{
+  background-color: #fff ;
+  border-radius: 10em;
+}
+
+.btn-primary:hover{
+  background-color: #ddd;
+}
+
+.btn-secondary:hover{
+  background-color: #fcf3f2;
+}
+
+.btn-secondary{
+  border: 2px solid #e63936;
+  border-radius: 1.5em;
+  color: #e63936;
+  background-color: #fff;
+}
+
+/* ################################Heading################ */
+
+.header{
+  /* 95vh why to let know user that there is also content below this  */
+  height: 95vh;
+  /* linear gradient to make photo darker */
+  background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0)),url('../Images/city\ night.jpg');
+  /* center makes center no matter if we minimize as we like  */
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.navbar{
+  padding:1rem;
+}
+
+ .navbar a{
+  color:white;
+}
+
+ .navbar .logo{
+  float: left;
+  font-size: 3.5rem;
+}
+
+ .navbar .nav-items{
+  float: right;
+  margin-top: 1rem;
+}
+
+ .navbar .nav-item {
+  display: inline-block;
+  padding: 1rem;
+  text-transform: uppercase;
+} 
+
+.navbar a:link,
+.navbar a:visited{
+  color:#f4f4f4;
+}
+
+.navbar a{
+  padding-bottom: 0.3rem;
+}
+
+.navbar a:hover{
+  border-bottom: 1px solid #fff;
+}
+
+/* This after is done because float neglect its parent so the header border wasn't showing. To show border we use after  */
+.navbar::after{
+  content:'';
+  display: block;
+  clear:both;
+}
+
+/* ###################### header content styling ############## */
+
+.header-content{
+  /* here to put its position absolute its parent must be given relative position so that we can work according to it   */
+  position: absolute;
+  /* border: 2px solid white; */
+  text-align: center;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* to make its background a little bit darker */
+  background: linear-gradient(rgba(0,0,0,.2), rgba(0,0,0,.2));
+
+}
+
+.header-content h1{
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.header-content p1{
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+/* ############### SHOWCASE SECTION STYLING ############## */
+.showcase{
+  background: #ddd;
+  padding: 10rem 0;
+}
+
+.row{
+  height: 350px;
+  border: 2px solid black;
+  background: #fff;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.325)
+}
+
+.row1{
+  margin-bottom: 10rem;
+}
+
+.row1 .img-box, .row2 .text-box{
+  float:left;
+  width: 50%;
+}
+
+.row2 .img-box, .row1 .text-box{
+  /* by giving her float it would've delete the height of its parent i.e. row but in roe we've already set it's height 350px so it doesnot affect  */
+  float:right;
+  width: 50%;
+}
+
+.row .img-box{
+  /* border: 2px solid green; */
+  /* by giving height 100% means its parent ko height ko 100% */
+  height: 100%;
+}
+
+.row .text-box{
+  /* border: 2px solid red; */
+  padding: 3rem;
+}
+
+.row .img-box img{
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  /* so that image aspect ratio won't change when we max and min the screen  */
+  object-fit: cover;
+}
+
+.row::after{
+  content: '';
+  display: block;
+  clear: both;
+}
+
+
+/* ########### FEATURES SECTION STYLING ################### */
+
+.features{
+  padding: 10rem 0;
+}
+
+.box-wrapper{
+  /* border: 2px solid green; */
+  box-shadow: 5px 5px 20px 0px rgba(67, 29, 29, 0.994);
+}
+
+.box{
+  /* here the whole box width is 100% and there are three boxes so each will have 33.33% */
+  width:33.333333333% ;
+  float: left;
+  /* border: 2px solid red; */
+  padding: 2rem;
+  text-align: center;
+}
+
+.box-1, .box-3{
+  background-color: #263238;
+  color: white;
+}
+
+.box-2{
+  background: linear-gradient(25deg, #d64c7f, #ee4758 50%);
+  color: white;
+}
+
+.box-wrapper::after{
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/* #############FOOTER STYLE ##################3 */
+
+.footer{
+  background: #263238;
+  color: #f4f4f4;
+  padding: 2rem;
+  text-align: center;
+}
+
+.social-media-links i{
+  margin: 2rem;
+}
+
+/* ########################## ABOUT PAGE STYLING ################### */
+
+.about{
+  padding: 5rem 0rem;
+}
+
+.about-heading::after{
+  content: '';
+  display: block;
+  border: 3px solid #e63946;
+  width: 100%;
+}
+
+.about-wrapper{
+  /* border: 2px solid black; */
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.about-wrapper .left{
+  float: left;
+  width: 50%;
+}
+
+.about-wrapper .right{
+  float: left;
+  width: 50%;
+}
+
+.about-wrapper::after{
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.about-wrapper li::before{
+  content: '\2713';
+  /* for tickmark */
+  color: #e63946;
+  font-weight: bold;
+  padding: 1rem;
+}
+
+/* ######################## COUNTS STYLING ############### */
+.counts{
+  margin-top: 3rem;
+  /* border:2px solid black; */
+}
+
+ .count-item{
+  /* border: 2px solid red; */
+  float:left;
+  width: 25%;
+  padding: 4rem;
+  text-align: center;
+}
+
+.count-item span{
+  font-size: 30px;
+  font-weight: 700;
+  color:#e63946
+}
+
+
+.counts::after{
+  content:'';
+  display: block;
+  clear:both;
+}
+
+.count-item p{
+  font-weight: 700;
+  color: #555;
+  font-size: 1.8rem;
+}
+
+/* #############Banner styling ############ */
+
+.contact-box{
+  background: linear-gradient(25deg, #d64c7f, #ee4758 50%);
+  color: #f4f4f4;
+  padding: 1rem;
+  box-shadow: 5px 5px 10px #3e2828;
+  /* margin-top: 3rem; */
+
+}
+
+.contact-content{
+  width: 50%;
+  float: left;
+}
+
+.button-class{
+  width: 30%;
+  float: right;
+
+}
+
+.contact-content{
+  font-weight: 700;
+  font-size: 2rem;
+  margin-top: 1.5rem;
+}
+
+.button-class{
+  text-align: right;
+  border: 4px solid white;
+  display: inline-block;
+  font-weight: 700;
+  font-size: 3rem;
+  text-transform: uppercase;
+  padding: 0.3rem 2.5rem;
+  letter-spacing: 0.5rem;
+  color: #f4f4f4;
+}
+
+
+
+.contact-box::after{
+  content: '';
+  display: block;
+  clear: both;
+
+}
+
+/* ###################### CONTACT STYLING ################### */
+
+.contact-form{
+  padding: 5rem 0;
+  background: #f7f7f7;
+}
+
+.form-wrapper{
+  border: 3px solid red;
+}
+
+.form-wrapper::after{
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.form-wrapper .company-address{
+  background: #fff;
+  border: 4px solid green;
+  width: 49%;
+  float: left;
+}
+
+.form-wrapper .company-address i{
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+.form-wrapper .company-address h2{
+  display: inline-block;
+  text-transform: uppercase;
+}
+
+.form-wrapper .address-group{
+  margin: 3rem;
+}
+
+.form-wrapper .company-address img{
+  width: 90%;
+  max-width: 90%;
+  min-height: 40%;
+  object-fit: cover;
+}
+
+
+/* ########## form styling ################ */
+.form-wrapper .form{
+  font-size: 1.6rem;
+  border: 4px dotted black;
+  width: 49%;
+  float: right;
+}
+
+.form h1::after{
+  content:'';
+  display: block;
+  border: 3px solid #ee4758;
+  width: 100%;
+}
+
+.form-wrapper .form label{
+  display: block;
+}
+
+.form-wrapper .form input{
+  padding: 0.5rem;
+  width: 100%;
+}
+
+.form-wrapper .form .form-group{
+  margin-bottom: 1.6rem;
+}
+
+
+
